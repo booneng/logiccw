@@ -1,0 +1,140 @@
+\documentclass[12pt, a4paper]{article}
+
+
+\tracingstats=2
+
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{pgfbaselayers}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{palatino}
+\usepackage{fancyhdr}
+
+
+
+
+\title{Logic Coursework}
+\author{Oh Boon Eng}
+\begin{document}
+
+\maketitle
+
+\newpage
+\section*{Question 1}
+\noindent \textbf{i)}\\\\
+\textnormal{Premises:}
+\begin{itemize}
+\item $P \longleftrightarrow \neg (O \wedge R)$
+\item $(\neg O \longrightarrow P) \longrightarrow DDI$
+\item $(O \wedge R \longrightarrow \neg P) \longrightarrow DAI$
+\end{itemize}
+
+\noindent\textnormal{Conclusion:}
+\begin{itemize}
+\item $DDI \wedge DAI$\\
+\end{itemize}
+
+\noindent \textbf{ii)}
+\begin{enumerate}
+
+\item \makebox[10cm][l]{$P \longleftrightarrow \neg (O \wedge R)$}  given
+\item \makebox[10cm][l]{$(\neg O \longrightarrow P) \longrightarrow DDI$} given  
+\item \makebox[10cm][l]{$(O \wedge R \longrightarrow \neg P) \longrightarrow DAI$} given 
+
+\begin{framed}
+\item \makebox[9cm][l]{$\neg O$} assume
+
+\begin{framed}
+\item \makebox[8.5cm][l]{$O \wedge R$} assume
+\item \makebox[8.5cm][l]{$O$} $4,\wedge E$
+\end{framed}
+
+\item \makebox[9cm][l]{$\neg (O \wedge R)$} $4,5,6,$  RAA 
+\item \makebox[9cm][l]{$P$} $1, 7,\longleftrightarrow E$
+\end{framed}
+
+\item \makebox[10cm][l]{$\neg O \longrightarrow P$} $4,8, \longrightarrow I$
+\item \makebox[10cm][l]{$DDI$} $2,9,\longrightarrow E$
+
+\newpage
+
+\begin{framed}
+\item \makebox[8.5cm][l]{$O \wedge R$} assume
+\item \makebox[8.5cm][l]{$P \longrightarrow \neg(O \wedge R)$} $1, \longleftarrow E$
+\item \makebox[8.5cm][l]{$\neg \neg(O \wedge R) \longrightarrow \neg P$} $12,$modus tollens
+\item \makebox[8.5cm][l]{$\neg \neg (O \wedge R)$} $11,\neg \neg I$
+\item \makebox[8.5cm][l]{$\neg P$} $13,14, \longrightarrow E$
+\end{framed}
+
+\item \makebox[10cm][l]{$O \wedge R \longrightarrow \neg P$} $11,15, \longrightarrow I$
+\item \makebox[10cm][l]{$DAI$} $3,16, \longrightarrow E$
+\item \makebox[10cm][l]{$DDI \wedge DAI$} $10,17,\wedge I$
+
+\end{enumerate}
+
+\section*{Question 2}
+\noindent \textbf{i)}\\\\
+$@(P,Q,R) \equiv (P \longrightarrow Q) \wedge (\neg P \longrightarrow R)$\\
+
+\noindent \textbf{ii)}\\
+
+\noindent\textnormal{Show that:  }$@(A,B,C), @(A,\neg B, C) \vdash C$
+
+
+\begin{enumerate}
+\item \makebox[10cm][l]{$@(A,B,C)$} given
+\item \makebox[10cm][l]{$@(A,\neg B,C)$} given
+\item \makebox[10cm][l]{$(A \longrightarrow B) \wedge (\neg A \longrightarrow C)$} $1, \equiv$
+\item \makebox[10cm][l]{$(A \longrightarrow \neg B) \wedge (\neg A \longrightarrow C)$} $2, \equiv$
+\item \makebox[10cm][l]{$A \longrightarrow B$} $3, \wedge E$
+\item \makebox[10cm][l]{$A \longrightarrow \neg B$} $4, \wedge E$
+\item \makebox[10cm][l]{$\neg A \longrightarrow C$} $3, \wedge E$
+
+\newpage
+
+
+\begin{framed}
+\item \makebox[9cm][l]{$A$} assume
+\item \makebox[9cm][l]{$B$} $5, \longrightarrow E$
+\item \makebox[9cm][l]{$\neg B$} $6, \longrightarrow E$
+\end{framed}
+
+\item \makebox[10cm][l]{$\neg A$} $8,9,10,$RAA
+\item \makebox[10cm][l]{$C$} $7, 11 \longrightarrow E$
+\end{enumerate}
+
+\section*{Question 3}
+\noindent \textbf{i)}
+\begin{enumerate}[a.]
+\item $\forall X ( length(X, 0) \longleftrightarrow \neg \exists Y,  member(Y, X))$
+\item $\forall X,Y ( append(X,Y,L) \longrightarrow \forall E ( member(E,L) \longrightarrow ( member(E,X) \vee member(E,Y))))$
+\item $\forall X,N ( length(X, N) \longrightarrow ( N=0 \vee N > 0))$
+\item $\forall X,Y ( same\_elts(X,Y) \longleftrightarrow \forall E ( member(E,X) \longleftrightarrow member(E,Y)))$
+\item $\exists X (length(X,0))$
+\end{enumerate}
+
+\noindent \textbf{ii)}\\\\
+\noindent \textnormal{Say}\\\\
+$Z = [1,2,3,4,5,1,2]$\\\\
+$X = [1,2,3]$\\\\
+$Y = [4,5]$ \\\\
+\noindent \textnormal{then } $\forall W ( member(W,Z) \longrightarrow (member(W,X) \vee member(W,Y)))$ \\
+but $append(X,Y,Z)$ does not hold.
+
+\end{document}
